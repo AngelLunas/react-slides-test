@@ -36,7 +36,7 @@ export const View8 = ({animation, next, prev, action}: PropsView) => {
       }
 
       useEffect(()=>{
-        if(animation){
+        if(animation) {
             setTimeout(()=>{
                 setLoading(true);
                 setIsView(false);
@@ -153,7 +153,7 @@ export const View8 = ({animation, next, prev, action}: PropsView) => {
                 <div className='view__8__container_title'>
                     <span className="text_titles_white">United as one healthcare family, we:</span>
                 </div>
-                <div>
+                <div className="container-content-circles">
                     <Line_svg svgRef={Icon}/>
                     <div className='view__8__container_circles'>
                         <div>

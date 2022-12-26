@@ -58,6 +58,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+
+    svg {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+.container-content-circles {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .svg_hospital{
@@ -68,8 +81,6 @@
 
 %container_icon_standard{
     position: absolute;
-    left: 44%;
-    top: 33%;
 }
 
 .container_text{
@@ -83,7 +94,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 80%;
+    align-items: center;
 }
 
 .container_background_3{
@@ -306,9 +318,8 @@
         display: flex;
         flex-direction: row;
         position: absolute;
-        top: 17%;
-        left: 21%;
         z-index: 100;
+        top: 30%;
     }
 
     &__container_data{
@@ -412,10 +423,9 @@
 }
 
 .line_svg{
-    position: absolute;
-    left: 5%;
-    top: 40%;
+    position: relative;
     z-index: 5;
+    top: -10%;
 }
 
 .text_titles{
