@@ -7,6 +7,7 @@ export const View1 = ({animation, next, action, prev}: PropsView) => {
 
     const tl = gsap.timeline();
     const ContainerCircle = useRef(null);
+    const containerView = useRef(null);
     const [loading, setLoading] = useState(false);
     const [isView, setIsView] = useState(false);
 
@@ -17,14 +18,15 @@ export const View1 = ({animation, next, action, prev}: PropsView) => {
                 setIsView(false);
             }, 200);
             if(action==='prev'){
+
                 tl.to(ContainerCircle.current, {
                     opacity: 1,
                     duration: 0
                 });
     
-                tl.from(ContainerCircle.current, {
+                tl.to(ContainerCircle.current, {
                     duration: .5,
-                    scale: 20,
+                    scale: 30,
                     y: 40,
                     borderRadius: 300
                 });
@@ -63,7 +65,7 @@ export const View1 = ({animation, next, action, prev}: PropsView) => {
     }, [next])
 
     return(
-        <div className='view__1__container'>
+        <div className='view__1__container' ref={containerView}>
             <div className={(isView)&&(action==='prev')&&(!prev) ? 'ocult_1' : null}></div>
             <div>
                 <div className={loading ? 'view__2__container_data' : 'view__2__container_data ocult'}>

@@ -40,14 +40,14 @@ export const animationMain = (animation: boolean, tl: gsap.core.Timeline, Text: 
             });
             tl.from(ContainerCircle.current, {
                 duration: .5,
-                scale: 20,
+                scale: 2,
                 y: 40,
                 borderRadius: 300
             }, "-=0.5");
             tl.to(Icon.current, {
                 opacity: 1,
                 duration: .2
-            });
+            })
         }
     }
 }
