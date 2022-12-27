@@ -10,7 +10,11 @@ function calculateTopGroup (textRef: React.MutableRefObject<any>,
     const percentWidth = ((width / document.documentElement.scrollWidth) * 100) / 2;
     const percentHeight = ((width / windowHeight) * 100) / 2;
     setLeft(50 - percentWidth);
-    setTop(50 - percentHeight);
+    if (windowWidht < 700) {
+        setTop((50 - percentHeight) + 5);
+    } else {
+        setTop(50 - percentHeight);
+    }
     setWidth(width);
 }
 
