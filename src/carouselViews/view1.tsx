@@ -7,7 +7,6 @@ export const View1 = ({animation, next, action, prev}: PropsView) => {
 
     const tl = gsap.timeline();
     const ContainerCircle = useRef(null);
-    const containerView = useRef(null);
     const [loading, setLoading] = useState(false);
     const [isView, setIsView] = useState(false);
 
@@ -18,23 +17,32 @@ export const View1 = ({animation, next, action, prev}: PropsView) => {
                 setIsView(false);
             }, 200);
             if(action==='prev'){
+                tl.set(ContainerCircle.current, {
+                    opacity: 1,
+                    width: '100vw',
+                    height: '100vh',
+                    borderRadius: 0,
+                    top: 0,
+                    left: 0
+                });
+    
+                tl.to(ContainerCircle.current, {
+                    width: 200,
+                    height: 200, 
+                    left: '40%',
+                    top: '30%',
+                    duration: .5,
+                });
 
                 tl.to(ContainerCircle.current, {
-                    opacity: 1,
+                    borderRadius: '50%',
                     duration: 0
-                });
-    
+                }, '-=.4');
+
                 tl.to(ContainerCircle.current, {
-                    duration: .5,
-                    scale: 30,
-                    y: 40,
-                    borderRadius: 300
-                });
-    
-                tl.to(ContainerCircle.current, {
-                    opacity: 0,
+                    opacity: 0, 
                     duration: 0
-                });
+                }, '-=.1');
             }
         }
     }, [animation]);
@@ -65,7 +73,7 @@ export const View1 = ({animation, next, action, prev}: PropsView) => {
     }, [next])
 
     return(
-        <div className='view__1__container' ref={containerView}>
+        <div className='view__1__container'>
             <div className={(isView)&&(action==='prev')&&(!prev) ? 'ocult_1' : null}></div>
             <div>
                 <div className={loading ? 'view__2__container_data' : 'view__2__container_data ocult'}>

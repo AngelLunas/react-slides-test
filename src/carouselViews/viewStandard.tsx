@@ -14,13 +14,16 @@ type propsView = {
     ref_group: Array<any>
     ref_text: React.MutableRefObject<any>
     loading: boolean
-    class_container_extend?: string
+    class_container_extend?: string,
+    top: number, 
+    setTop: React.Dispatch<React.SetStateAction<number>>,
+    left: Number,
+    setLeft: React.Dispatch<React.SetStateAction<number>>,
+    width: number, 
+    setWidth: React.Dispatch<React.SetStateAction<number>>,
 }
 
-export const View_Standard = ({Icon, Group, text, class_text, class_circle, class_container, ref_icon, ref_container, ref_circle, ref_group, ref_text, loading, class_container_extend}: propsView) => {
-    const [top, setTop] = useState(0);
-    const [left, setLeft] = useState(0);
-    const [width, setWidth] = useState(0);
+export const View_Standard = ({Icon, Group, text, class_text, class_circle, class_container, ref_icon, ref_container, ref_circle, ref_group, ref_text, loading, class_container_extend, top, left, width, setWidth, setTop, setLeft}: propsView) => {
     const textRef = useRef(null);
     const svgRef = useRef(null);
 

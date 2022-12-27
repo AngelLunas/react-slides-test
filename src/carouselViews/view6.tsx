@@ -7,7 +7,9 @@ import { gsap } from 'gsap';
 import { animationMain, animationNext, animationPrev } from "../animations";
 
 export const View6 = ({animation, next, prev, action}: PropsView) => {
-
+    const [width, setWidth] = useState(0);
+    const [top, setTop] = useState(0);
+    const [left, setLeft] = useState(0);
     const tl = gsap.timeline();
     let Icon = useRef(null);
     let Container = useRef(null);
@@ -19,7 +21,7 @@ export const View6 = ({animation, next, prev, action}: PropsView) => {
     const [isView, setIsView] = useState(false);
 
     useEffect(()=>{
-        animationMain(animation, tl, Text, action, ContainerCircle, setLoading, setIsView, group, Icon);
+        animationMain(animation, tl, Text, action, ContainerCircle, setLoading, setIsView, group, Icon, width, left, top);
     }, [animation]);
 
     useEffect(()=>{
@@ -36,6 +38,7 @@ export const View6 = ({animation, next, prev, action}: PropsView) => {
         <View_Standard text='One hospital had 1,471 caregivers for patients.' class_text='text_titles_white' Group={Group_6} 
         Icon={MedicalCenter} class_circle='view__6__container_icon_6' class_container='view__6__container' ref_icon={Icon}
         ref_container={Container} ref_circle={ContainerCircle} ref_group={group.current} ref_text={Text} loading={loading}
+        top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth}
         />
         </>
     )

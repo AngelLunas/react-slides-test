@@ -1,6 +1,6 @@
 export const animationMain = (animation: boolean, tl: gsap.core.Timeline, Text: React.MutableRefObject<any>, 
                               action: string, ContainerCircle: React.MutableRefObject<any>, setLoading: (value: React.SetStateAction<boolean>) => void, setIsView: (value: React.SetStateAction<boolean>) => void, 
-                              group: React.MutableRefObject<any>, Icon: React.MutableRefObject<any>
+                              group: React.MutableRefObject<any>, Icon: React.MutableRefObject<any>, width: number, left: number, top: number
 ) => {
     if(animation){
         setTimeout(()=>{
@@ -38,12 +38,24 @@ export const animationMain = (animation: boolean, tl: gsap.core.Timeline, Text: 
                 opacity: 0,
                 duration: 0
             });
-            tl.from(ContainerCircle.current, {
-                duration: .5,
-                scale: 2,
-                y: 40,
-                borderRadius: 300
-            }, "-=0.5");
+            tl.set(ContainerCircle.current, {
+                width: '100vw',
+                height: '100vh', 
+                left: 0, 
+                top: 0, 
+                borderRadius: 0, 
+            });
+            tl.to(ContainerCircle.current, {
+                width,
+                height: width,
+                top: `${top}%`,
+                left: `${left}%`,
+                duration: .5
+            });
+            tl.to(ContainerCircle.current, {
+                borderRadius: '50%',
+                duration: 0
+            }, '-=4');
             tl.to(Icon.current, {
                 opacity: 1,
                 duration: .2

@@ -32,17 +32,29 @@ export const View2 = ({animation, next, prev, action}: PropsView) => {
                     delay: 1
                 }, "-=0.4"); 
             }else if(action==='prev'){
-                tl.to(Icon.current, {
+                tl.to([Icon.current, Text.current], {
                     opacity: 0,
                     duration: 0
                 });
-                tl.from(ContainerCircle.current, {
+                tl.to(ContainerCircle.current, {
+                    width: '100vw',
+                    height: '100vh',
+                    top: -70, 
+                    left: 0,
+                    position: 'relative',
+                    duration: 0,
+                    borderRadius: 0
+                });
+                tl.to(ContainerCircle.current, {
+                    width: 160,
+                    height: 160,
+                    position: 'unset',
                     duration: .5,
-                    scale: 20,
-                    y: 40,
-                    borderRadius: 300
-                }, "-=0.5");
-                tl.to(Icon.current, {
+                });
+                tl.set(ContainerCircle.current, {
+                    borderRadius: '50%'
+                }, '-=.4');
+                tl.to([Icon.current, Text.current], {
                     opacity: 1,
                     duration: .2
                 });
