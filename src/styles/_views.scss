@@ -79,6 +79,12 @@
     top: 0;
 }
 
+.svg_group {
+    height: fit-content;
+    position: relative;
+    margin: auto;
+}
+
 %container_icon_standard{
     position: absolute;
 }
@@ -88,14 +94,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    position: absolute;
 }
 
 .container_svg{
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 80%;
-    align-items: center;
+    height: 100%;
 }
 
 .container_background_3{
@@ -450,4 +457,17 @@
 
 .ocult{
     opacity: 0;
+}
+
+@media screen and (max-width: 500px) {
+    .text_titles, 
+    .text_titles_black, 
+    .view__2__text,
+    .text_titles_white {
+        font-size: 25px;
+    }
+
+    .view__8_text_data, .text_data_8 {
+        font-size: 19px;
+    }
 }

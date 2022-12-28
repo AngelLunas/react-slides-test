@@ -3,7 +3,7 @@ import { calculateTopGroup } from "./hooks";
 
 type propsView = {
     Icon: ({ svgRef }: { svgRef: React.MutableRefObject<any>; }) => JSX.Element
-    Group: ({ group }: { group: Array<SVGGElement>; }) => JSX.Element
+    Group: ({ group, svgRef, top }: { group: Array<SVGGElement>, svgRef: React.MutableRefObject<any>, top: string}) => JSX.Element
     text: String
     class_text: string
     class_circle: string
@@ -21,18 +21,21 @@ type propsView = {
     setLeft: React.Dispatch<React.SetStateAction<number>>,
     width: number, 
     setWidth: React.Dispatch<React.SetStateAction<number>>,
+    svgRef2: React.MutableRefObject<any>,
+    topSvg: string,
+    setTopSvg: React.Dispatch<React.SetStateAction<string>>,
 }
 
-export const View_Standard = ({Icon, Group, text, class_text, class_circle, class_container, ref_icon, ref_container, ref_circle, ref_group, ref_text, loading, class_container_extend, top, left, width, setWidth, setTop, setLeft}: propsView) => {
+export const View_Standard = ({Icon, Group, text, class_text, class_circle, class_container, ref_icon, ref_container, ref_circle, ref_group, ref_text, loading, class_container_extend, top, left, width, setWidth, setTop, setLeft, svgRef2, topSvg, setTopSvg}: propsView) => {
     const textRef = useRef(null);
     const svgRef = useRef(null);
 
     useEffect(() => {
-        calculateTopGroup(textRef, svgRef, setLeft, setTop, setWidth);
+        calculateTopGroup(textRef, svgRef, setLeft, setTop, setWidth, setTopSvg, svgRef2);
     }, []);
 
     window.addEventListener('resize', () => {
-        calculateTopGroup(textRef, svgRef, setLeft, setTop, setWidth);
+        calculateTopGroup(textRef, svgRef, setLeft, setTop, setWidth, setTopSvg, svgRef2);
     });
 
     return(
@@ -41,11 +44,11 @@ export const View_Standard = ({Icon, Group, text, class_text, class_circle, clas
                 <div className='container_text' ref={textRef}>
                     <span className={class_text} ref={ref_text}>{text}</span>
                 </div>
-                <div className={`container_icon ${class_circle}`} ref={ref_circle} style={{left: `${left}%`, top: `${top}%`, width: `${width}px`, height: `${width}px`}}>
-                    <Icon svgRef={ref_icon}/>
-                </div>
                 <div className='container_svg' ref={svgRef}>
-                    <Group group={ref_group}/>
+                    <div className={`container_icon ${class_circle}`} ref={ref_circle} style={{left: `50%`, top: `50%`, width: `${width}px`, height: `${width}px`}}>
+                        <Icon svgRef={ref_icon}/>
+                    </div>
+                    <Group group={ref_group} svgRef={svgRef2} top={topSvg}/>
                 </div>
             </div>
         </div>

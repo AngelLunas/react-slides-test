@@ -67,3 +67,9 @@
 .text_arrows_alter{
     color: #fff;
 }
+
+@media screen and (max-width: 500px) {
+    .text_arrows {
+        font-size: 25px;
+    }
+}

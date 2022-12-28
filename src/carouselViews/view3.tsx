@@ -11,12 +11,14 @@ export const View3 = ({animation, next, prev, action}: PropsView) => {
     const [width, setWidth] = useState(0);
     const [top, setTop] = useState(0);
     const [left, setLeft] = useState(0);
+    const [topSvg, setTopSvg] = useState('0');
     const tl = gsap.timeline();
     let group = useRef([]);
     group.current = [];
     let ContainerCircle = useRef(null);
     let Icon = useRef(null);
     let Text = useRef(null);
+    const svgRef = useRef(null);
     let Container = useRef(null);
     const [loading, setLoading] = useState(false);
     const [isView, setIsView] = useState(false);
@@ -40,7 +42,8 @@ export const View3 = ({animation, next, prev, action}: PropsView) => {
             <View_Standard Icon={NurseSvg} Group={Group_3} class_container='view__3__container' class_circle='view__3__container_icon_3'
             text='Each of us has an impact on thousands of patients every year.' class_text='text_titles_black' ref_icon={Icon}
             ref_container={Container} ref_circle={ContainerCircle} ref_group={group.current} ref_text={Text} loading={loading}
-            top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth}
+            top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth} svgRef2={svgRef} topSvg={topSvg}
+            setTopSvg={setTopSvg}
             />
         </>
 )

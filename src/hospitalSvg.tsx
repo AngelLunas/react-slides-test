@@ -8,6 +8,7 @@ export const HospitalSvg = ({svgRef}: {svgRef:  React.MutableRefObject<any>}) =>
     viewBox="0 0 77 59"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="svg_group"
   >
     <g className="icon_hospital_container" ref={svgRef}>
     <path

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export const Group_4 = ({group}: {group: Array<SVGGElement>}) => {
+export const Group_4 = ({group, svgRef, top}: {group: Array<SVGGElement>, svgRef: React.MutableRefObject<any>, top: string}) => {
 
   const addToRefs = (el: SVGGElement) => {
     if(el && !group.includes(el)){
@@ -15,6 +15,9 @@ export const Group_4 = ({group}: {group: Array<SVGGElement>}) => {
     viewBox="0 0 1706 582"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="svg_group"
+    ref={svgRef}
+    style={{top}}
   >
     <g className="group_4" ref={addToRefs}>
       <path

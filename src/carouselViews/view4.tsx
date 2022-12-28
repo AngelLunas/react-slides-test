@@ -15,10 +15,12 @@ export const View4 = ({animation, next, prev, action}: PropsView) => {
     let ContainerCircle = useRef(null);
     let group = useRef([]);
     let Text = useRef(null);
+    const svgRef = useRef(null);
     group.current = [];
     const tl = gsap.timeline();
     const [loading, setLoading] = useState(false);
     const [isView, setIsView] = useState(false);
+    const [topSvg, setTopSvg] = useState('');
 
     useEffect(()=>{
         animationMain(animation, tl, Text, action, ContainerCircle, setLoading, setIsView, group, Icon, width, left, top);
@@ -38,7 +40,7 @@ export const View4 = ({animation, next, prev, action}: PropsView) => {
             <View_Standard text='One large hospital had 90,000 patiens encounters in 2020' Icon={MedicalCenter} Group={Group_4}
             class_container='view__4__container' class_text='text_titles_white' class_circle='view__4__container_icon_4' ref_icon={Icon}
             ref_container={Container} ref_circle={ContainerCircle} ref_group={group.current} ref_text={Text} loading={loading}
-            top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth}
+            top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth} svgRef2={svgRef} topSvg={topSvg} setTopSvg={setTopSvg}
             />
         </>
     )

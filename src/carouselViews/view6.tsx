@@ -15,10 +15,12 @@ export const View6 = ({animation, next, prev, action}: PropsView) => {
     let Container = useRef(null);
     let ContainerCircle = useRef(null);
     let group = useRef([]);
-    let Text = useRef(null)
+    let Text = useRef(null);
+    const svgRef = useRef(null);
     group.current = [];
     const [loading, setLoading] = useState(false);
     const [isView, setIsView] = useState(false);
+    const [topSvg, setTopSvg] = useState('');
 
     useEffect(()=>{
         animationMain(animation, tl, Text, action, ContainerCircle, setLoading, setIsView, group, Icon, width, left, top);
@@ -38,7 +40,7 @@ export const View6 = ({animation, next, prev, action}: PropsView) => {
         <View_Standard text='One hospital had 1,471 caregivers for patients.' class_text='text_titles_white' Group={Group_6} 
         Icon={MedicalCenter} class_circle='view__6__container_icon_6' class_container='view__6__container' ref_icon={Icon}
         ref_container={Container} ref_circle={ContainerCircle} ref_group={group.current} ref_text={Text} loading={loading}
-        top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth}
+        top={top} left={left} width={width} setLeft={setLeft} setTop={setTop} setWidth={setWidth} svgRef2={svgRef} topSvg={topSvg} setTopSvg={setTopSvg}
         />
         </>
     )

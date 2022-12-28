@@ -1,7 +1,6 @@
 import React from "react";
-import './styles/styles.scss';
 import { Carousel } from "./carousel";
-
+import './styles/styles.scss';
 
 export const App = () => {
     return(

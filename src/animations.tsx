@@ -8,6 +8,11 @@ export const animationMain = (animation: boolean, tl: gsap.core.Timeline, Text: 
             setIsView(false);
         }, 200);
         if(action==='next'){
+            tl.to(ContainerCircle.current, {
+                translateX: '-50%',
+                translateY: '-50%',
+                duration: 0
+            });
             tl.from(Text.current, {
                 duration: 0.4,
                 opacity: 0,
@@ -33,7 +38,6 @@ export const animationMain = (animation: boolean, tl: gsap.core.Timeline, Text: 
                 }
               });
         }else if(action==='prev'){
-            console.log('ejecuting previuss');
             tl.to(Icon.current, {
                 opacity: 0,
                 duration: 0
@@ -44,18 +48,23 @@ export const animationMain = (animation: boolean, tl: gsap.core.Timeline, Text: 
                 left: 0, 
                 top: 0, 
                 borderRadius: 0, 
+                scale: 2
             });
             tl.to(ContainerCircle.current, {
                 width,
                 height: width,
-                top: `${top}%`,
-                left: `${left}%`,
-                duration: .5
+                top: '50%',
+                left: '50%',
+                translateX: '-50%',
+                translateY: '-50%',
+                duration: .5,
+                borderRadius: '50%',
+                scale: 1
             });
             tl.to(ContainerCircle.current, {
-                borderRadius: '50%',
-                duration: 0
-            }, '-=4');
+                borderRadius: '30%',
+                duration: .1
+            }, '-=.3');
             tl.to(Icon.current, {
                 opacity: 1,
                 duration: .2
