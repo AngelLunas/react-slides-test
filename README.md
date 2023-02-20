@@ -4,4 +4,4 @@ Slides between screens with complex animated elements made with gsap. For this p
 
 [React slides animations](https://react-slides-animation.netlify.app/)
 
-![React slides](public/banner-slides.png)
+![React slides](public/imgs/banner-slides.png)
